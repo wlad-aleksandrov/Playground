@@ -124,3 +124,10 @@ So we need to build a separate Notification Service (akin to microservices desig
 2. Manual Tests for WebSockets & REST via a HTML5 App
 3. Unit Tests probably should have been implemented... although the code is really simple when it comes to the cyclomatic complexity.
 4. JMeter Tests can be enhanced to enable automated integration tests.
+
+# What remains to be done
+1. Critical: TLS/SSL: should be straightforward: settings added to config files + tests
+2. Not critical: NotificationSerivce going offline... currently reconnect implemented, but should the Serivce be down for good, we should come up with a better solution.
+3. Hosts: currently both Services are Console Apps. Options:
+* as a Windows Service or IIS Service (esp. for WCF)
+* Background Process (Console Apps without Console Output) and a Synchorization/Management Service to control (start/stop...) the services.
