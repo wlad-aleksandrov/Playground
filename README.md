@@ -41,7 +41,7 @@ REDIS comes handy in two major ways:
 * To get auction Id I simply use INCR to atomically increase the value of a key NextAuctionId
 * As to the PlaceBid functionality I implemented it via a LUA Script which is executed atomically on REDIS:
 
-```
+```lua
 local tryPlaceBid = function (auctionKey, bidder, bid)
 
 	local prices = redis.call('hmget', auctionKey,'HighestBid', 'StartingPrice')		
