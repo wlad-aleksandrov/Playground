@@ -95,12 +95,12 @@ So we need to build a separate Notification Service (akin to microservices desig
 
 1. We need an Auction Repository DLL as a wrapper around REDIS (or other future resository solutionS)
 2. We need an AuctionService DLL to provide RESTful API
-* It will consume the RepositoryDLL for some of buisness logic and persistence purposes
-* It will implement the rest of business logic
-* It will consume some NotificationClient CLL to publish updates to the NotificationService
+ * It will consume the RepositoryDLL for some of buisness logic and persistence purposes
+ * It will implement the rest of business logic
+ * It will consume some NotificationClient CLL to publish updates to the NotificationService
 3. As for NotificationDLL we probably need to enforce thread-safety/concurrency
-* It will be a web sockets client
-* lock or Producer/Consumer Pattern would do ==> Producer/Consumer Pattern based on BlockingCollection
+ * It will be a web sockets client
+ * lock or Producer/Consumer Pattern would do ==> Producer/Consumer Pattern based on BlockingCollection
 4. NotificationService, should be very simple: Publsih & Subscribe
 5. As for Auction Images --> we will store just image urls. Clients would then download images from a dedicated web server, which is beyond the scope this project.
 
@@ -117,6 +117,14 @@ So we need to build a separate Notification Service (akin to microservices desig
  * What I like about SuperSocket is that we can consume API via browser HTML5 WebSockets API. No third-party js libs required.
  * Works on iOS and Android (Apache Cordova HTML5 Apps).
 
+# DI & IoC
+
+Both services make use of Dependency Injection, but no IoC are used (not really needed). 
+Dependencies are injected manually via hosts with or without a factory.
+* Repository for Auction Service : default REDIS, but possible to design outher solutions to be used as defined in a config file (SQL, memcached, in-memory, hybrid (SQL for Persistence /No-SQL for the rest) etc...)
+* Notification Client for Auction Service: currently concurrent PRODUCER/CONSUMER WebSockets, but possible to replace with other solutions: different concurrent implementations, multi-threaded...
+* Notification Server for Notification Service: via factory
+ 
 
 # Tests
 
