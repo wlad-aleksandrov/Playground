@@ -17,7 +17,7 @@ We've got two problems here:
 * how to make sure that our service is concurrent (several users placing a bid at the same time)
 
 ## As to ensuring the concurrency there are two options:
-* Make our servie a singleton and wrap the PlaceBid functionality into lock
+* Make our service a singleton and wrap the PlaceBid functionality into lock
   * Pros: simple
   * Cons: not scalable when we have multiple services running, incl. behing an NLB
 * Implement a singleton Synchoronization Service
@@ -107,13 +107,13 @@ So we need to build a separate Notification Service (akin to microservices desig
 # Technologies
 
 1. For RESTful AucountService I chose WCF, which I know very well. It really fits the bill, although on MSDN it says that ASP.NET 5 WebAPi should be the preferred option to develop REST services.
-* Alternatives: ServiceStack (which is paid unless you use an old version) and ASP.NET 5 WebAPI.
-* ASP.NET 5 WebAPI: DNX required, not sure how to host as a Windows Service, or as a normal process without IIS overhead.
+ * Alternatives: ServiceStack (which is paid unless you use an old version) and ASP.NET 5 WebAPI.
+ * ASP.NET 5 WebAPI: DNX required, not sure how to host as a Windows Service, or as a normal process without IIS overhead.
 
 2. For REDIS I chose StackExchange.Redis (open-source and maintained). Although build primarily for Linux, there is a port to Windows by MS Open Tech @ https://github.com/ServiceStack/redis-windows
 
 3. For WebSockets I chose SuperSocket (SuperSocketWebSocket), which is an open-source, and very mature framework. 
-* Supports TLS/SSL. 
+ * Supports TLS/SSL. 
  * What I like about SuperSocket is that we can consume API via browser HTML5 WebSockets API. No third-party js libs required.
  * Works on iOS and Android (Apache Cordova HTML5 Apps).
 
@@ -121,9 +121,9 @@ So we need to build a separate Notification Service (akin to microservices desig
 
 Both services make use of Dependency Injection, but no IoC are used (not really needed). 
 Dependencies are injected manually via hosts with or without a factory.
-* Repository for Auction Service : default REDIS, but possible to design outher solutions to be used as defined in a config file (SQL, memcached, in-memory, hybrid (SQL for Persistence /No-SQL for the rest) etc...)
-* Notification Client for Auction Service: currently concurrent PRODUCER/CONSUMER WebSockets, but possible to replace with other solutions: different concurrent implementations, multi-threaded...
-* Notification Server for Notification Service: via factory
+ * Repository for Auction Service : default REDIS, but possible to design outher solutions to be used as defined in a config file (SQL, memcached, in-memory, hybrid (SQL for Persistence /No-SQL for the rest) etc...)
+ * Notification Client for Auction Service: currently concurrent PRODUCER/CONSUMER WebSockets, but possible to replace with other solutions: different concurrent implementations, multi-threaded...
+ * Notification Server for Notification Service: via factory
  
 
 # Tests
