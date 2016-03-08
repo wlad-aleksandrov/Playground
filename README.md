@@ -107,8 +107,8 @@ So we need to build a separate Notification Service (akin to microservices desig
 # Technologies
 
 1. For RESTful AucountService I chose WCF, which I know very well. It really fits the bill, although on MSDN it says that ASP.NET 5 WebAPi should be the preferred option to develop REST services.
-*Alternatives: ServiceStack (which is paid unless you use an old version) and ASP.NET 5 WebAPI.
-*ASP.NET 5 WebAPI: DNX required, not sure how to host as a Windows Service, or as a normal process without IIS overhead.
+* Alternatives: ServiceStack (which is paid unless you use an old version) and ASP.NET 5 WebAPI.
+* ASP.NET 5 WebAPI: DNX required, not sure how to host as a Windows Service, or as a normal process without IIS overhead.
 
 2. For REDIS I chose StackExchange.Redis (open-source and maintained). Although build primarily for Linux, there is a port to Windows by MS Open Tech @ https://github.com/ServiceStack/redis-windows
 
@@ -118,3 +118,9 @@ So we need to build a separate Notification Service (akin to microservices desig
  * Works on iOS and Android (Apache Cordova HTML5 Apps).
 
 
+# Tests
+
+1. Manual Tests & Concurrency Tests via JMeter (Uploaded TestRedis.jmx) to test RESTful API
+2. Manual Tests for WebSockets & REST via a HTML5 App
+3. Unit Tests probably should have been implemented... although the code is really simple when it comes to the cyclomatic complexity.
+4. JMeter Tests can be enhanced to enable automated integration tests.
