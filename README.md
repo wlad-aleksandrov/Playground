@@ -95,15 +95,26 @@ So we need to build a separate Notification Service (akin to microservices desig
 
 1. We need an Auction Repository DLL as a wrapper around REDIS (or other future resository solutionS)
 2. We need an AuctionService DLL to provide RESTful API
-..1. It will consume the RepositoryDLL for some of buisness logic and persistence purposes
-..2. It will implement the rest of business logic
-..3. It will consume some NotificationClient CLL to publish updates to the NotificationService
+* It will consume the RepositoryDLL for some of buisness logic and persistence purposes
+* It will implement the rest of business logic
+* It will consume some NotificationClient CLL to publish updates to the NotificationService
 3. As for NotificationDLL we probably need to enforce thread-safety/concurrency
-..1. It will be a web sockets client
-..2. lock or Producer/Consumer Pattern would do ==> Producer/Consumer Pattern based on BlockingCollection
+* It will be a web sockets client
+* lock or Producer/Consumer Pattern would do ==> Producer/Consumer Pattern based on BlockingCollection
 4. NotificationService, should be very simple: Publsih & Subscribe
 5. As for Auction Images --> we will store just image urls. Clients would then download images from a dedicated web server, which is beyond the scope this project.
 
 # Technologies
+
+1. For RESTful AucountService I chose WCF, which I know very well. It really fits the bill, although on MSDN it says that ASP.NET 5 WebAPi should be the preferred option to develop REST services.
+*Alternatives: ServiceStack (which is paid unless you use an old version) and ASP.NET 5 WebAPI.
+*ASP.NET 5 WebAPI: DNX required, not sure how to host as a Windows Service, or as a normal process without IIS overhead.
+
+2. For REDIS I chose StackExchange.Redis (open-source and maintained). Although build primarily for Linux, there is a port to Windows by MS Open Tech @ https://github.com/ServiceStack/redis-windows
+
+3. For WebSockets I chose SuperSocket (SuperSocketWebSocket), which is an open-source, and very mature framework. 
+* Supports TLS/SSL. 
+ * What I like about SuperSocket is that we can consume API via browser HTML5 WebSockets API. No third-party js libs required.
+ * Works on iOS and Android (Apache Cordova HTML5 Apps).
 
 
