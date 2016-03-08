@@ -99,8 +99,8 @@ So we need to build a separate Notification Service (akin to microservices desig
 ..2. It will implement the rest of business logic
 ..3. It will consume some NotificationClient CLL to publish updates to the NotificationService
 3. As for NotificationDLL we probably need to enforce thread-safety/concurrency
---1. It will be a web sockets client
---2. lock or Producer/Consumer Pattern would do ==> Producer/Consumer Pattern based on BlockingCollection
+..1. It will be a web sockets client
+..2. lock or Producer/Consumer Pattern would do ==> Producer/Consumer Pattern based on BlockingCollection
 4. NotificationService, should be very simple: Publsih & Subscribe
 5. As for Auction Images --> we will store just image urls. Clients would then download images from a dedicated web server, which is beyond the scope this project.
 
