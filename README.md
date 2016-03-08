@@ -134,8 +134,9 @@ Dependencies are injected manually via hosts with or without a factory.
 4. JMeter Tests can be enhanced to enable automated integration tests.
 
 # What remains to be done
-1. Critical: TLS/SSL: should be straightforward: settings added to config files + tests
+1. Critical: TLS/SSL: should be however straightforward: settings added to config files + tests
 2. Not critical: NotificationSerivce going offline... currently reconnect implemented, but should the Serivce be down for good, we should come up with a better solution.
-3. Hosts: currently both Services are Console Apps. Options:
+3. Authentication for Buyers via REDIS + separate set of Buyers with name, country etc. (currently generic BidderID is used)
+4. Hosts: currently both Services are Console Apps. Options:
 * as a Windows Service or IIS Service (esp. for WCF)
-* Background Process (Console Apps without Console Output) and a Synchorization/Management Service to control (start/stop...) the services.
+* Background Process (Console Apps without Console Output) and a Synchorization/Management Service to control (start/stop...) the background processes.
