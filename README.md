@@ -91,6 +91,10 @@ So we need to build a separate Notification Service (akin to microservices desig
 
 * REDIS also supports PUB/SUB pattern (though somewhat lowlevel), but the Notification Service should not depend on the Redis Repository. Besides it should be the responsibility of the Auction Service as business logic part to publish updates.
 
-# Choosing technologies
+# Summarizing Architecture
+
+1. We need an Auction Repository DLL as a wrapper around REDIS (or other future resository solutionS)
+2. We need an AuctionService DLL to provide RESTful API
+-1.
 
 *
