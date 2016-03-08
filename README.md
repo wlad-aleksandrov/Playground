@@ -85,8 +85,11 @@ As the latter two are quite dangerous, the Auction Service should expose actuall
 Sure our RESTful API addresses the task, but it doesn enable interactivity.
 So we need to build a separate Notification Service (akin to microservices design):
 * When placing a bid, an Auction Service would publish an update to the Notification Service
-* Notifation Service informs all interested parties via WebSockets
+* Notifation Service informs all interested parties via WebSockets 
 * Notification Service should be a singleton (as it maintains internally open WS-Sessions), but it is possible to have multiple Notification Services grouped per AuctionIDs.
+* Basically PUB/SUB
+
+* REDIS also supports PUB/SUB pattern (though somewhat lowlevel), but the Notification Service should not depend on the Redis Repository. Besides it should be the responsibility of the Auction Service as business logic part to publish updates.
 
 # Choosing technologies
 
