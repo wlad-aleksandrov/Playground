@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WA.Repository", "WA.Repository\WA.Repository.csproj", "{837B71F8-A9D9-4065-997D-4C265B737CE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionService", "AuctionService\AuctionService.csproj", "{2BB2A722-698A-44AC-AF80-D80734601CB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionServiceHost", "AuctionServiceHost\AuctionServiceHost.csproj", "{828C8100-3446-4ADF-AB6E-D2D43AC0387D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService", "NotificationService\NotificationService.csproj", "{A6C42C31-3AA9-491A-8073-2CCDF62F331B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationServiceHost", "NotificationServiceHost\NotificationServiceHost.csproj", "{2306A774-4F60-44C0-93C1-E116D5FCBECC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WA.Notification", "WA.Common\WA.Notification.csproj", "{E041B266-3D98-49F5-A1E5-46BD7E202C03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleApp", "SampleApp", "{53BDC2B4-D5FE-4A0E-B0CE-C5B84211E928}"
+	ProjectSection(SolutionItems) = preProject
+		AuctionApp.html = AuctionApp.html
+		Utils.js = Utils.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{837B71F8-A9D9-4065-997D-4C265B737CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{837B71F8-A9D9-4065-997D-4C265B737CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{837B71F8-A9D9-4065-997D-4C265B737CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{837B71F8-A9D9-4065-997D-4C265B737CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB2A722-698A-44AC-AF80-D80734601CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB2A722-698A-44AC-AF80-D80734601CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB2A722-698A-44AC-AF80-D80734601CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB2A722-698A-44AC-AF80-D80734601CB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{828C8100-3446-4ADF-AB6E-D2D43AC0387D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{828C8100-3446-4ADF-AB6E-D2D43AC0387D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{828C8100-3446-4ADF-AB6E-D2D43AC0387D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{828C8100-3446-4ADF-AB6E-D2D43AC0387D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6C42C31-3AA9-491A-8073-2CCDF62F331B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6C42C31-3AA9-491A-8073-2CCDF62F331B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6C42C31-3AA9-491A-8073-2CCDF62F331B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6C42C31-3AA9-491A-8073-2CCDF62F331B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2306A774-4F60-44C0-93C1-E116D5FCBECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2306A774-4F60-44C0-93C1-E116D5FCBECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2306A774-4F60-44C0-93C1-E116D5FCBECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2306A774-4F60-44C0-93C1-E116D5FCBECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E041B266-3D98-49F5-A1E5-46BD7E202C03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E041B266-3D98-49F5-A1E5-46BD7E202C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E041B266-3D98-49F5-A1E5-46BD7E202C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E041B266-3D98-49F5-A1E5-46BD7E202C03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

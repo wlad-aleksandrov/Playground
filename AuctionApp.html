@@ -1,0 +1,43 @@
+﻿<html>
+<head>
+    <meta charset="utf8" />
+    <title>Auction App</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+</head>
+<body>
+    <p>Auction ID</p>
+    <input type="text" id="auctionId"/>
+    <button type="button" onclick="getAuction();">Enter!</button>
+    <p>Bidder ID</p>
+    <input type="text" id="bidderId" />
+    <p>Bid Amount</p>
+    <input type="text" id="bidAmount"/>
+    <button type="button" onclick ="placeBid();">Bid!</button>
+    <p id="lastStatus">Last Status: {unknown}</p>
+    <table class="table">
+        <tr>
+            <td>AuctionId</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>ImageUrl</td>
+            <td>StartingPrice</td>
+            <td>HighestBidder</td>
+            <td>HighestBid</td>
+        </tr>
+        <tr>
+            <td id="tableAuctionId"></td>
+            <td id="tableName"></td>
+            <td id="tableDescription"></td>
+            <td id="tableImageUrl"></td>
+            <td id="tableStartingPrice"></td>
+            <td id="tableHighestBidder"></td>
+            <td id="tableHighestBid"></td>
+        </tr>
+    </table>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="Utils.js"></script>
+
+
+</body>
+</html>
