@@ -5,8 +5,8 @@ I chose to focus heavily on the Backend:
 * WebSocket-based Notification Service to enable interactivity: Auction Updates
 * Both RESTful and WebSocket API are consumed by a single-page HTML5 App
   (AuctionApp.html and Utils.js)
-* jQuery to consume RESTful API
-* HTML5 Web Sockets to consume the WebSockets-based Notification Service
+  * jQuery to consume RESTful API
+  * HTML5 Web Sockets to consume the WebSockets-based Notification Service
 
 # Architecture
 
@@ -60,7 +60,6 @@ local tryPlaceBid = function (auctionKey, bidder, bid)
 		return false
 	else 
 		redis.call('hmset',auctionKey,'HighestBid',bid, 'HighestBidder',bidder)
-		redis.call('hincrby', auctionKey, 'Updated', 1)
 		return redis.call('hgetall', auctionKey)
 	end
 end
