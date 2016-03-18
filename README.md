@@ -109,7 +109,8 @@ So we need to build a separate Notification Service (akin to microservices desig
  * Alternatives: ServiceStack (which is paid unless you use an old version) and ASP.NET 5 WebAPI.
  * ASP.NET 5 WebAPI: DNX required, not sure how to host as a Windows Service, or as a normal process without IIS overhead.
 
-2. For REDIS I chose StackExchange.Redis (open-source and maintained). Although build primarily for Linux, there is a port to Windows by MS Open Tech @ https://github.com/ServiceStack/redis-windows
+2. For REDIS I chose StackExchange.Redis (open-source and maintained). 
+  Although Redis is built primarily for Linux, there is a port to Windows by MS Open Tech @ https://github.com/ServiceStack/redis-windows. Besides there is a cloud option with Azure Redis.
 
 3. For WebSockets I chose SuperSocket (SuperSocketWebSocket), which is an open-source, and very mature framework. 
  * Supports TLS/SSL. 
