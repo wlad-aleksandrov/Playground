@@ -481,5 +481,59 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:AuctionServiceWebApi.Controllers.AuctionsController">
+            <summary>
+            Auctions Controller
+            </summary>
+        </member>
+        <member name="M:AuctionServiceWebApi.Controllers.AuctionsController.GetAuctions">
+            <summary>
+            Get list of all open auctions
+            </summary>
+            <returns>List of open auctions</returns>
+        </member>
+        <member name="M:AuctionServiceWebApi.Controllers.AuctionsController.GetAuctions(System.Int32,System.Int32)">
+            <summary>
+            Get list of open auctions using pagination
+            </summary>
+            <param name="pageNo">Page Number</param>
+            <param name="pageSize">Page Size</param>
+            <returns></returns>
+        </member>
+        <member name="M:AuctionServiceWebApi.Controllers.AuctionsController.HeadAuctions">
+            <summary>
+            Returns a number of open auctions
+            </summary>
+            <returns>Custom Header X-Paging-TotalRecordCount</returns>
+        </member>
+        <member name="M:AuctionServiceWebApi.Controllers.AuctionsController.DeleteAuction(System.String)">
+            <summary>
+            Close an auction
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuctionServiceWebApi.Controllers.AuctionsController.PostAuction(AuctionServiceWebApi.Models.AuctionItem)">
+            <summary>
+            Opens a new auction
+            </summary>
+            <param name="auction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuctionServiceWebApi.Controllers.AuctionsController.GetAuction(System.String)">
+            <summary>
+            Retrieves an auction
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuctionServiceWebApi.Controllers.AuctionsController.PutBid(System.String,AuctionServiceWebApi.Models.Bid)">
+            <summary>
+            Tries to submit an auction bid
+            </summary>
+            <param name="id"></param>
+            <param name="bid">d</param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
