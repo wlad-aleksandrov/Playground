@@ -1,7 +1,6 @@
 function getAuction() {
     $.ajax({
-        url: 'http://localhost:8733/BuyerService/Auctions/'+ $('#auctionId').val(),
-        dataType: 'jsonp',
+        url: 'http://localhost:9090/AuctionService/Auctions/' + $('#auctionId').val(),
         success: function (auction)
         {
             $('#tableAuctionId').text(auction.Id);
@@ -36,9 +35,9 @@ function placeBid() {
     var payload = JSON.stringify( { bidderId: $('#bidderId').val(), bidAmount: $('#bidAmount').val() });
 
     $.ajax({
-        url: 'http://localhost:8733/BuyerService/Auctions/' + $('#auctionId').val(),
+        url: 'http://localhost:9090/AuctionService/Auctions/' + $('#auctionId').val(),
         type: 'PUT',
-        crossDomain: true,
+       // crossDomain: true,
         contentType: "application/json",
         data: payload,
         processData:false,

@@ -24,7 +24,7 @@ namespace WA.Notification
                     {
                         _notificationClient.Publish(notification);
                     }
-                    catch (Exception)
+                    catch (Exception exc)
                     {
                         // add back for later processing
                         //TODO: it probably should not be added to the end of the queue...
