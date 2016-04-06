@@ -10,6 +10,8 @@ I chose to focus heavily on the Backend:
 
 # Architecture
 
+![Architecture Diagram](/Auction App Diagram.png?raw=true "App Diagram")
+
 First step is to build the Auction Service (Business Logic) which would serve our requests, such as GetAuction or PlaceBid.
 
 We've got two problems here:
