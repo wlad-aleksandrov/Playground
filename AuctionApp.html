@@ -2,27 +2,27 @@
 <head>
     <meta charset="utf8" />
     <title>Auction App</title>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 </head>
 <body>
-    <p>Auction ID</p>
-    <input type="text" id="auctionId"/>
-    <button type="button" onclick="getAuction();">Enter!</button>
-    <p>Bidder ID</p>
-    <input type="text" id="bidderId" />
-    <p>Bid Amount</p>
-    <input type="text" id="bidAmount"/>
-    <button type="button" onclick ="placeBid();">Bid!</button>
+    <form id="auctionData">
+        <input type="text" placeholder="Auction Id" id="auctionId" />
+        <input type="submit" id="enterAuction" value="Enter!" />
+    </form>
+    <form id="bidData">
+        <input type="text" placeholder="Bidder Id" id="bidderId" />
+        <input type="text" placeholder="Bid Amount" id="bidAmount" />
+        <input type="submit" id="placeBid" value="Bid!"/>
+    </form>
     <p id="lastStatus">Last Status: {unknown}</p>
     <table class="table">
         <tr>
-            <td>AuctionId</td>
+            <td>Auction Id</td>
             <td>Name</td>
             <td>Description</td>
-            <td>ImageUrl</td>
-            <td>StartingPrice</td>
-            <td>HighestBidder</td>
-            <td>HighestBid</td>
+            <td>Image Url</td>
+            <td>Starting Price</td>
+            <td>Highest Bidder</td>
+            <td>Highest Bid</td>
         </tr>
         <tr>
             <td id="tableAuctionId"></td>
@@ -34,10 +34,86 @@
             <td id="tableHighestBid"></td>
         </tr>
     </table>
+    <script src="auctionatawebapp/scripts/jquery-2.2.2.min.js"></script>
+    <script src="auctionatawebapp/scripts/jquery-ui-1.11.4.min.js"></script>
+    <script>
 
-    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="Utils.js"></script>
+        $(function () {
+
+            $("#enterAuction").click(getAuction);
+            $("#placeBid").click(placeBid);
+
+            function getAuction(item) {
+                $.ajax({
+                    url: 'http://localhost:9090/AuctionService/Auctions/' + $('#auctionId').val(),
+                    success: function (auction) {
+                        $('#tableAuctionId').text(auction.Id);
+                        $('#tableName').text(auction.Name);
+                        $('#tableDescription').text(auction.Description);
+                        $('#tableImageUrl').text(auction.ImageUrl);
+                        $('#tableStartingPrice').text(auction.StartingPrice);
+                        $('#tableHighestBidder').text(auction.HighestBidder);
+                        $('#tableHighestBid').text(auction.HighestBid);
+
+                        var ws = new WebSocket("ws://localhost:8089/AccountService");
+
+                        ws.onopen = function () {
+                            ws.send("Subscribe " + $('#auctionId').val());
+                        };
+
+                        ws.onmessage = function (evt) {
+
+                            var data = JSON.parse(evt.data);
+                            // check if supplied value is greater than existing one
+                            if (parseInt($('#tableHighestBid').text()) < data.HighestBid) {
+                                $('#tableHighestBidder').text(data.Bidder);
+                                $('#tableHighestBid').text(data.HighestBid);
+
+                                $('#tableHighestBidder').effect("highlight");
+                                $('#tableHighestBid').effect("highlight");
 
 
+                            }
+                        };
+                    }
+                });
+                return false;
+            }
+
+            function placeBid(item) {
+                var payload = JSON.stringify({ bidderId: $('#bidderId').val(), bidAmount: $('#bidAmount').val() });
+
+                $.ajax({
+                    url: 'http://localhost:9090/AuctionService/Auctions/' + $('#auctionId').val(),
+                    type: 'PUT',
+                    // crossDomain: true,
+                    contentType: "application/json",
+                    data: payload,
+                    processData: false,
+                    success: function (data) {
+
+                        if (data) {
+                            $('#lastStatus').text("Last Status: SUCCESS");
+                            $("#lastStatus").css('color', 'green');
+                            $("#lastStatus").effect("highlight");
+
+                        }
+                        else {
+                            $('#lastStatus').text("Last Status: DECLINED");
+                            $("#lastStatus").css('color', 'red');
+                            $("#lastStatus").effect("highlight");
+                        }
+                    },
+                    error: function (er)
+                    { }
+                });
+
+                return false;
+            }
+
+        });
+    </script>
+
+    <link href="auctionatawebapp/content/bootstrap.min.css" rel="stylesheet" />
 </body>
 </html>

@@ -18,12 +18,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleApp", "SampleApp", "{53BDC2B4-D5FE-4A0E-B0CE-C5B84211E928}"
 	ProjectSection(SolutionItems) = preProject
 		AuctionApp.html = AuctionApp.html
-		Utils.js = Utils.js
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionServiceWebApi", "AuctionServiceWebApi\AuctionServiceWebApi.csproj", "{C9E67430-3CDB-4A4C-AE9B-99159293988E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionServiceWebApi.Tests", "AuctionServiceWebApi.Tests\AuctionServiceWebApi.Tests.csproj", "{C3CF6F58-20AB-443D-ACFC-57B713934D3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionataWebApp", "AuctionataWebApp\AuctionataWebApp.csproj", "{3A194EED-D488-41E7-9A56-643486C1FB75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,8 +64,15 @@ Global
 		{C3CF6F58-20AB-443D-ACFC-57B713934D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3CF6F58-20AB-443D-ACFC-57B713934D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3CF6F58-20AB-443D-ACFC-57B713934D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A194EED-D488-41E7-9A56-643486C1FB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A194EED-D488-41E7-9A56-643486C1FB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A194EED-D488-41E7-9A56-643486C1FB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A194EED-D488-41E7-9A56-643486C1FB75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3A194EED-D488-41E7-9A56-643486C1FB75} = {53BDC2B4-D5FE-4A0E-B0CE-C5B84211E928}
 	EndGlobalSection
 EndGlobal
