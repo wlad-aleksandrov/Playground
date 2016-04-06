@@ -11,7 +11,7 @@
     <form id="bidData">
         <input type="text" placeholder="Bidder Id" id="bidderId" />
         <input type="text" placeholder="Bid Amount" id="bidAmount" />
-        <input type="submit" id="placeBid" value="Bid!"/>
+        <input type="submit" id="placeBid" value="Bid!" />
     </form>
     <p id="lastStatus">Last Status: {unknown}</p>
     <table class="table">
@@ -75,7 +75,9 @@
 
                             }
                         };
-                    }
+                    },
+                    error: function (er)
+                    { alert("Error: " + er.statusText); }
                 });
                 return false;
             }
@@ -105,7 +107,9 @@
                         }
                     },
                     error: function (er)
-                    { }
+                    {
+                        alert("Error: " + er.statusText);
+                    }
                 });
 
                 return false;
