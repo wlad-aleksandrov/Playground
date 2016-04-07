@@ -110,6 +110,7 @@ So we need to build a separate Notification Service (akin to microservices desig
 1. For RESTful AucountService I chose WCF, which I know very well. It really fits the bill, although on MSDN it says that ASP.NET 5 WebAPi should be the preferred option to develop REST services.
  * Alternatives: ServiceStack (which is paid unless you use an old version) and ASP.NET 5 WebAPI.
  * ASP.NET 5 WebAPI: DNX required, not sure how to host as a Windows Service, or as a normal process without IIS overhead.
+<b>UPDATE:</b> Account Service Implementation moved to ASP.NET Web Api 2, self-hosted using OWIN/Katana.
 
 2. For REDIS I chose StackExchange.Redis (open-source and maintained). 
   Although Redis is built primarily for Linux, there is a port to Windows by MS Open Tech @ https://github.com/ServiceStack/redis-windows. Besides there is a cloud option with Azure Redis.
