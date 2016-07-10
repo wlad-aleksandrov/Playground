@@ -57,10 +57,8 @@ namespace WA.Notification
 
             if (disposing)
             {
-                if (_waitHandle != null)
-                    _waitHandle.Dispose();
-                if (_websocket != null)
-                    _websocket.Dispose();
+                _waitHandle?.Dispose();
+                _websocket?.Dispose();
             }
             _disposed = true;
         }

@@ -35,7 +35,7 @@ namespace WA.Repository
         public string OpenAuction(string name, string description, string imageUrl, int startingPrice, int estimate)
         {
             var nextAuctionId = _redisDatabase.StringIncrement(AuctionFields.NextAuctionNumber);
-            var auctionFields = new HashEntry[]
+            var auctionFields = new[]
             {
                     new HashEntry(AuctionFields.Id, nextAuctionId),
                     new HashEntry(AuctionFields.Name, name),
@@ -71,8 +71,7 @@ namespace WA.Repository
 
             if (disposing)
             {
-                if (_redis != null)
-                    _redis.Dispose();
+                _redis?.Dispose();
             }
             _disposed = true;
         }
