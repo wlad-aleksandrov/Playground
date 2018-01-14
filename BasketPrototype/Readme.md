@@ -52,11 +52,11 @@ Link returns a page of items with a bunch of navigational links to navigate betw
 Each catalogue item has also a self link and additionally a link to PUT this item straight to the basket.
 A link to PUT item to the basket (add) is only available, if an item is not already in the basket.
 
-4. A client browses basket items by GETting link to contents.
-Every basket collection has the following links:
+4. A client reviews basket items by GETting link to basket contents.
+Every basket item has the following links:
     * self: to update quantity or delete an item
-    * details: to guide the client to catalogue to learn more about this item
-    (Basket item contains just a subset of attributes of a catalogue item.)
+    * details: to guide the client to the catalogue to learn more about this item
+    (Basket item contains just a subset of attributes of a corresponding catalogue item.)
 
 5. Provided the basket is in OPEN state (i.e. not yet paid) a client can proceed to checkout by GETting checkout link.
 
