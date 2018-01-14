@@ -18,17 +18,17 @@ There are five projects:
 To enable HATEOAS I initially chose halcyon (https://github.com/visualeyes/halcyon) as a HAL-implementation for ASP.NET CORE
 (http://stateless.co/hal_specification.html and https://tools.ietf.org/html/draft-kelly-json-hal-06).
 
-However due to some missing functionality related to templated for collection items, 
-I eventually abandoned the HAL-format (application/json+hal) and instead extended existing DTOs with a new attribute _Links.
+However due to some missing functionality related to templated for collection items in this library, 
+I eventually had to abandon this implementation of the HAL-format (application/json+hal) and instead extended existing DTOs with a new attribute _Links.
 
-Attribute _expanded (expanding subresources) is not yet supported by this API.
+Attribute _expanded (and hence expanding subresources) is not yet supported by this API.
 
 
 # WORKFLOW
 
 There is just one gateway to fire requests: http://localhost:5050/api/baskets.
 A client is guided exclusively by links. 
-Dependending on the current station of the workflow a client is presented with different links to navigate.
+Dependending on the current state of the workflow a client is presented with different links to navigate.
 
 1. A client creates a basket by POSTing under the gateway. 
    She then reseives a location and no body (might be nice to return a created basket as well here though).
@@ -53,7 +53,10 @@ Every basket collection has the following links:
     * details: to guide the client to catalogue to learn more about this item
     (Basket item contains just a subset of attributes of a catalogue item.)
 
+5. Provided the basket is in OPEN state (i.e. not yet paid) a client can proceed to checkout by GETting checkout link.
+
 # OPEN POINTS
-    1. Tests
-    2. Model Validation in Basket Service
-    3. HTTPs and CORS
+1. Tests
+2. Model Validation in Basket Service
+3. Check if HTTPs works
+4. Check CORS
