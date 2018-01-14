@@ -25,9 +25,9 @@ To enable HATEOAS I initially chose halcyon (https://github.com/visualeyes/halcy
 (http://stateless.co/hal_specification.html and https://tools.ietf.org/html/draft-kelly-json-hal-06).
 
 However due to some missing functionality related to templated links for collection items in this library, 
-I eventually had to abandon this implementation of the HAL-format (application/json+hal) and instead extended existing DTOs with a new attribute _Links.
+I eventually had to abandon this implementation of the HAL-format (application/json+hal) and instead extended DTOs with a new attribute _Links.
 
-Attribute _expanded (and hence expanding subresources) is not yet supported by this API.
+Attribute _expanded (and hence expanding subresources) is not yet supported by the Basket API.
 
 
 # WORKFLOW
