@@ -1,24 +1,29 @@
 
 # Introduction
 
-This is a prototype of a Basket API. It is implemented as a hypermedia-driven (HATEOAS) RESTful Service using ASP.NET CORE 2.
+This is a prototype of a Basket API. 
+It is implemented as a hypermedia-driven (HATEOAS) RESTful Service using ASP.NET CORE 2.
 
 Solution BasketPrototype.sln is in the folder BasketPrototype.
 
 There are five projects:
 
 1. BasketRepository - Data Storage for Buskets
-2. Inventory - Data Storage for Stock
+2. Inventory - Data Storage for Stock/Catalogue
 3. BasketService - RESTful API
 4. BasketApiClient - a low-level client lib
 5. BasketApiClientTestApp - a sample app using the client lib
+
+It is to be noted, that Baskets and Inventory use different data storage solutions.
+We also assume, that items are available in great quantities, so that no check is performed when 
+a customer increases item quantity. 
 
 # HATEOAS
 
 To enable HATEOAS I initially chose halcyon (https://github.com/visualeyes/halcyon) as a HAL-implementation for ASP.NET CORE
 (http://stateless.co/hal_specification.html and https://tools.ietf.org/html/draft-kelly-json-hal-06).
 
-However due to some missing functionality related to templated for collection items in this library, 
+However due to some missing functionality related to templated links for collection items in this library, 
 I eventually had to abandon this implementation of the HAL-format (application/json+hal) and instead extended existing DTOs with a new attribute _Links.
 
 Attribute _expanded (and hence expanding subresources) is not yet supported by this API.
