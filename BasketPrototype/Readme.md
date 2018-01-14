@@ -17,6 +17,7 @@ There are five projects:
 It is to be noted, that Baskets and Inventory use different data storage solutions.
 We also assume, that items are available in great quantities, so that no check is performed when 
 a customer increases item quantity. 
+![](https://github.com/wlad-aleksandrov/Playground/blob/master/BasketPrototype/DiagramREST.PNG)
 
 # HATEOAS
 
