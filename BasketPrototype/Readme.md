@@ -64,5 +64,6 @@ Every basket item has the following links:
 # OPEN POINTS
 1. Tests
 2. Model Validation in Basket Service
-3. Check if HTTPs works
-4. Check CORS
+3. Uris should not be "hackable", but rather opaque
+4. Check if HTTPs works
+5. Check CORS
